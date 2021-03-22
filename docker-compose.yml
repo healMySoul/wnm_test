@@ -8,12 +8,14 @@ services:
     volumes:
       - ./code:/code
       - ./conf/nginx/:/etc/nginx/conf.d
+    working_dir: /code/library
 
   php:
     image: azr4m/php73-fpm-mysql
     volumes:
       - ./code:/code
       - ./conf/php/add.conf.ini:/etc/php/7.3/fpm/conf.d/add.conf.ini
+    working_dir: /code/library
 
   database:
     image: mysql:5.6

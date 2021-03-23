@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Author;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Book AS BookRequest;
 use App\Book;
@@ -27,6 +28,8 @@ class BookController extends Controller
     public function store(BookRequest $request)
     {
         $book = Book::create($request->validated());
+        $authors = Author::whereIn('id', $request->input('author_ids'))->get();
+        $book->authors()->saveMany($authors);
 
         return response()->json($book, 201);
     }

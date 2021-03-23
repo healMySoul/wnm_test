@@ -10,7 +10,7 @@ POST http://localhost:8080/api/books
 Accept: application/json
 Content-Type: application/json
 
-{"title": "Jungle Book", "text": "Once upon a time..."}
+{"title": "Jungle Book 12", "text": "Once upon a time...", "author_ids": ["14", "15"]}
 
 ###
 PUT http://localhost:8080/api/books/1
@@ -39,7 +39,7 @@ Content-Type: application/json
 {"name": "John Doe"}
 
 ###
-PUT http://localhost:8080/api/authors/13
+PUT http://localhost:8080/api/authors/14
 Accept: application/json
 Content-Type: application/json
 

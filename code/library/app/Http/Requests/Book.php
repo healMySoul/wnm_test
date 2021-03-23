@@ -26,6 +26,8 @@ class Book extends FormRequest
         return [
             'title' => 'required|unique:books|max:255',
             'text' => 'required',
+            'author_ids' => 'required|array|',
+            'author_ids.*' => 'exists:authors,id',
         ];
     }
 }

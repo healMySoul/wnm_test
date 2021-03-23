@@ -1,0 +1,12 @@
+GET http://localhost:8080/api/books
+
+###
+GET http://localhost:8080/api/books/111
+
+###
+POST http://localhost:8080/api/books
+Accept: application/json
+Content-Type: application/json
+
+{"title": "1234567", "text": "Once upon a time..."}
+

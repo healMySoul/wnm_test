@@ -1,5 +1,8 @@
 GET http://localhost:8080/api/books
 Accept: application/json
+Content-Type: application/json
+
+{"author": "albert"}
 
 ###
 GET http://localhost:8080/api/books/31

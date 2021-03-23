@@ -24,4 +24,18 @@ Route::middleware('api')->group(function () {
     Route::post('/books', 'Api\BookController@store');
     Route::put('/books/{book}', 'Api\BookController@update');
     Route::delete('/books/{book}', 'Api\BookController@destroy');
+
+    Route::get('/authors', 'Api\AuthorController@index');
+    Route::get('/authors/{author}', 'Api\AuthorController@show');
+    Route::post('/authors', 'Api\AuthorController@store');
+    Route::put('/authors/{author}', 'Api\AuthorController@update');
+    Route::delete('/authors/{author}', 'Api\AuthorController@destroy');
+});
+
+/**
+ * Если не найден ни один роут, показываем сообщение
+ * Работает только для GET-запросов, особенность Laravel
+ */
+Route::fallback(function(){
+    return response()->json(['message' => 'Method is not allowed.'], 404);
 });

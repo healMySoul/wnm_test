@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Author;
+use App\Book;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Book AS BookRequest;
-use App\Book;
+use App\Http\Resources\BookResource;
 
 class BookController extends Controller
 {
@@ -16,7 +17,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return response()->json(Book::all());
+        return response()->json(BookResource::collection((Book::all())));
     }
 
     /**
@@ -42,7 +43,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        return response()->json($book);
+        return response()->json(new BookResource($book));
     }
 
     /**

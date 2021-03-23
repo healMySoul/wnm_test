@@ -23,5 +23,5 @@ Route::middleware('api')->group(function () {
     Route::get('/books/{book}', 'ApiBookController@show');
     Route::post('/books', 'ApiBookController@store');
     Route::put('/books/{book}', 'ApiBookController@update');
-    Route::delete('/books/{id}', 'ApiBookController@delete');
+    Route::delete('/books/{book}', 'ApiBookController@destroy');
 });

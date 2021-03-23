@@ -1,7 +1,9 @@
 GET http://localhost:8080/api/books
+Accept: application/json
 
 ###
-GET http://localhost:8080/api/books/111
+GET http://localhost:8080/api/books/1
+Accept: application/json
 
 ###
 POST http://localhost:8080/api/books
@@ -10,3 +12,13 @@ Content-Type: application/json
 
 {"title": "1234567", "text": "Once upon a time..."}
 
+###
+PUT http://localhost:8080/api/books/1
+Accept: application/json
+Content-Type: application/json
+
+{"title": "New title", "text": "Text is not the same"}
+
+###
+DELETE http://localhost:8080/api/books/1
+Accept: application/json

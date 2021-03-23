@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\Book AS BookRequest;
 use App\Book;
 
 class ApiBookController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Список книг
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -19,7 +18,7 @@ class ApiBookController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Создание книги
      *
      * @param  BookRequest  $request
      * @return \Illuminate\Http\JsonResponse
@@ -32,7 +31,7 @@ class ApiBookController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Просмотр книги
      *
      * @param  Book  $book
      * @return \Illuminate\Http\JsonResponse
@@ -43,25 +42,30 @@ class ApiBookController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновление книги
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  BookRequest  $request
+     * @param  Book  $book
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(BookRequest $request, Book $book)
     {
-        //
+        $book->update($request->validated());
+
+        return response()->json($book);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаление книги
      *
-     * @param  int  $id
+     * @param Book $book
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Book $book)
     {
-        //
+        $book->delete();
+
+        return response()->json(null, 204);
     }
 }

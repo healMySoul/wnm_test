@@ -19,9 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('api')->group(function () {
-    Route::get('/books', 'ApiBookController@index');
-    Route::get('/books/{book}', 'ApiBookController@show');
-    Route::post('/books', 'ApiBookController@store');
-    Route::put('/books/{book}', 'ApiBookController@update');
-    Route::delete('/books/{book}', 'ApiBookController@destroy');
+    Route::get('/books', 'Api\BookController@index');
+    Route::get('/books/{book}', 'Api\BookController@show');
+    Route::post('/books', 'Api\BookController@store');
+    Route::put('/books/{book}', 'Api\BookController@update');
+    Route::delete('/books/{book}', 'Api\BookController@destroy');
 });

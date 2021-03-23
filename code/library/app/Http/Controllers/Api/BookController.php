@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Book AS BookRequest;
 use App\Book;
 
-class ApiBookController extends Controller
+class BookController extends Controller
 {
     /**
      * Список книг

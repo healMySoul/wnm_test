@@ -55,6 +55,9 @@ class BookController extends Controller
     public function update(BookRequest $request, Book $book)
     {
         $book->update($request->validated());
+        $authors = Author::whereIn('id', $request->input('author_ids'))->get();
+        $book->authors()->detach();
+        $book->authors()->saveMany($authors);
 
         return response()->json($book);
     }

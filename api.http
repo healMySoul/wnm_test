@@ -13,14 +13,14 @@ Content-Type: application/json
 {"title": "Jungle Book 12", "text": "Once upon a time...", "author_ids": ["14", "15"]}
 
 ###
-PUT http://localhost:8080/api/books/1
+PUT http://localhost:8080/api/books/31
 Accept: application/json
 Content-Type: application/json
 
-{"title": "New title", "text": "Text is not the same"}
+{"title": "Bad title", "text": "Text is not the same", "author_ids": ["14", "15", "16"]}
 
 ###
-DELETE http://localhost:8080/api/books/19
+DELETE http://localhost:8080/api/books/31
 Accept: application/json
 
 ###
@@ -36,7 +36,7 @@ POST http://localhost:8080/api/authors
 Accept: application/json
 Content-Type: application/json
 
-{"name": "John Doe"}
+{"name": "Albert Einstein"}
 
 ###
 PUT http://localhost:8080/api/authors/14

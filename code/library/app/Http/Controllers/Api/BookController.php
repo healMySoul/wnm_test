@@ -7,6 +7,7 @@ use App\Book;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Book AS BookRequest;
 use App\Http\Resources\BookResource;
+use Illuminate\Database\Eloquent\Builder;
 
 class BookController extends Controller
 {
@@ -17,7 +18,17 @@ class BookController extends Controller
      */
     public function index()
     {
-        return response()->json(BookResource::collection((Book::all())));
+        $author = (request()->input('author'));
+
+        if ($author !== null) {
+            $books = Book::whereHas('authors', function (Builder $query) use ($author) {
+                $query->where('name', 'like', "%{$author}%");
+            })->get();
+        } else {
+            $books = Book::all();
+        }
+
+        return response()->json(BookResource::collection($books));
     }
 
     /**

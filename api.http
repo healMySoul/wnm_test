@@ -1,73 +1,78 @@
+### 1. Получить список книг (фильтр опциональный)
 GET http://localhost:8080/api/books
 Accept: application/json
 Content-Type: application/json
 
 {"filters": {"author": "albert"}}
 
-###
-GET http://localhost:8080/api/books/31
+### 2. Получить книгу по ID
+GET http://localhost:8080/api/books/1
 Accept: application/json
 
-###
+### 3. Создать книгу
 POST http://localhost:8080/api/books
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer {token}
 
-{"title": "Jungle Book 12", "text": "Once upon a time...", "author_ids": ["14", "15"]}
+{"title": "Jungle Book", "text": "Once upon a time...", "author_ids": ["1", "2"]}
 
-###
-PUT http://localhost:8080/api/books/31
+### 4. Редактировать книгу
+PUT http://localhost:8080/api/books/1
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODA4MFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxNjYwMjc4MCwiZXhwIjoxNjE2NjA2MzgwLCJuYmYiOjE2MTY2MDI3ODAsImp0aSI6ImJVTEdZaFBCTTN5bWtnQjYiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.wrXAAZX60PXY_Sz2aB8zHxVeIHH9vJ5vb9TjnCyOo_o
+Authorization: Bearer {token}
 
-{"title": "Bad title 2", "text": "Text is not the same", "author_ids": ["14", "15", "16"]}
+{"title": "Bad title 2", "text": "Text is not the same", "author_ids": ["1", "2", "3"]}
 
-###
-DELETE http://localhost:8080/api/books/31
+### 5. Удалить книгу по ID
+DELETE http://localhost:8080/api/books/1
 Accept: application/json
+Authorization: Bearer {token}
 
-###
+### 6. Получить список авторов
 GET http://localhost:8080/api/authors
 Accept: application/json
 
-###
-GET http://localhost:8080/api/authors/14
+### 7. Получить автора по ID
+GET http://localhost:8080/api/authors/1
 Accept: application/json
 
-###
+### 8. Создать автора
 POST http://localhost:8080/api/authors
 Accept: application/json
 Content-Type: application/json
 
 {"name": "Albert Einstein"}
 
-###
+### 9. Редактировать автора
 PUT http://localhost:8080/api/authors/14
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer {token}
 
 {"name": "Luke Smith"}
 
-###
+### 10. Удалить автора
 DELETE http://localhost:8080/api/authors/13
 Accept: application/json
+Authorization: Bearer {token}
 
-###
+### 11. Регистрация юзера
 POST http://localhost:8080/api/users
 Accept: application/json
 Content-Type: application/json
 
-{"name":  "Anton", "email": "test@gmail.com", "password": "123456", "password_confirmation": "123456"}
+{"name": "Anton", "email": "test@gmail.com", "password": "123456", "password_confirmation": "123456"}
 
-###
+### 12. Аутентификация юзера
 GET http://localhost:8080/api/login
 Accept: application/json
 Content-Type: application/json
 
 {"email": "test@gmail.com", "password": "123456"}
 
-###
+### 13. Разлогиниться
 POST http://localhost:8080/api/logout
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODA4MFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxNjYwMjc4MCwiZXhwIjoxNjE2NjA2MzgwLCJuYmYiOjE2MTY2MDI3ODAsImp0aSI6ImJVTEdZaFBCTTN5bWtnQjYiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.wrXAAZX60PXY_Sz2aB8zHxVeIHH9vJ5vb9TjnCyOo_o
+Authorization: Bearer {token}

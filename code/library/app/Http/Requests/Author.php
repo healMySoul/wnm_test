@@ -23,8 +23,10 @@ class Author extends FormRequest
      */
     public function rules()
     {
+        $author = $this->route('author');
+
         return [
-            'name' => 'required|unique:authors|max:255',
+            'name' => 'required|max:255|unique:authors,name' . ($author !== null ? ',' . $author->id : ''),
         ];
     }
 }

@@ -42,6 +42,7 @@ Accept: application/json
 POST http://localhost:8080/api/authors
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer {token}
 
 {"name": "Albert Einstein"}
 

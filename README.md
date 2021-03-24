@@ -2,12 +2,12 @@
 
 Мануал:
 
-1) Клонируем проект: git clone https://github.com/healMySoul/wnm_test.git
+1. Клонируем проект: git clone https://github.com/healMySoul/wnm_test.git
 
-2) Убеждаемся, что на портах 8080, 8081, 8082 ничего не висит
-2.1) Поднимаем контейнеры: docker-compose up
+2. Убеждаемся, что на портах 8080, 8081, 8082 ничего не висит
+  1. Поднимаем контейнеры: docker-compose up
 
-3) Заходим в php-контейнер: docker-compose exec php /bin/bash
+3. Заходим в php-контейнер: docker-compose exec php /bin/bash
 3.1) Создаем файл с переменными окружения: cp .env.example .env
 3.2) Устанавливаем зависимости: composer install
 3.3) Генерируем ключ приложения: php artisan key:generate

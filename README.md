@@ -8,6 +8,8 @@
     - Убеждаемся, что на портах 8080, 8081, 8082 ничего не висит
     - Поднимаем контейнеры: docker-compose up
 
+<br>
+
 3. 
     - Заходим в php-контейнер: docker-compose exec php /bin/bash
     - Создаем файл с переменными окружения: cp .env.example .env
@@ -15,6 +17,8 @@
     - Генерируем ключ приложения: php artisan key:generate
     - Генерируем ключ JWT: php artisan jwt:secret
     - Выполняем миграции: php artisan migrate
+
+<br>
 
 4) 
     - Открываем файл с примерами запросов к API: /api.http

@@ -2,7 +2,7 @@ GET http://localhost:8080/api/books
 Accept: application/json
 Content-Type: application/json
 
-{"author": "albert"}
+{"filters": {"author": "albert"}}
 
 ###
 GET http://localhost:8080/api/books/31
@@ -19,8 +19,9 @@ Content-Type: application/json
 PUT http://localhost:8080/api/books/31
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODA4MFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxNjYwMjc4MCwiZXhwIjoxNjE2NjA2MzgwLCJuYmYiOjE2MTY2MDI3ODAsImp0aSI6ImJVTEdZaFBCTTN5bWtnQjYiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.wrXAAZX60PXY_Sz2aB8zHxVeIHH9vJ5vb9TjnCyOo_o
 
-{"title": "Bad title", "text": "Text is not the same", "author_ids": ["14", "15", "16"]}
+{"title": "Bad title 2", "text": "Text is not the same", "author_ids": ["14", "15", "16"]}
 
 ###
 DELETE http://localhost:8080/api/books/31
@@ -52,3 +53,21 @@ Content-Type: application/json
 DELETE http://localhost:8080/api/authors/13
 Accept: application/json
 
+###
+POST http://localhost:8080/api/users
+Accept: application/json
+Content-Type: application/json
+
+{"name":  "Anton", "email": "test@gmail.com", "password": "123456", "password_confirmation": "123456"}
+
+###
+GET http://localhost:8080/api/login
+Accept: application/json
+Content-Type: application/json
+
+{"email": "test@gmail.com", "password": "123456"}
+
+###
+POST http://localhost:8080/api/logout
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODA4MFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxNjYwMjc4MCwiZXhwIjoxNjE2NjA2MzgwLCJuYmYiOjE2MTY2MDI3ODAsImp0aSI6ImJVTEdZaFBCTTN5bWtnQjYiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.wrXAAZX60PXY_Sz2aB8zHxVeIHH9vJ5vb9TjnCyOo_o

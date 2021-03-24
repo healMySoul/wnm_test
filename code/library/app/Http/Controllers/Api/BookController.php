@@ -18,12 +18,19 @@ class BookController extends Controller
      */
     public function index()
     {
-        $author = (request()->input('author'));
+        $filters = request()->input('filters');
+        $books = [];
 
-        if ($author !== null) {
-            $books = Book::whereHas('authors', function (Builder $query) use ($author) {
-                $query->where('name', 'like', "%{$author}%");
-            })->get();
+        if (!empty($filters)) {
+            foreach ($filters as $filter => $filterValue) {
+                switch ($filter) {
+                    case 'author':
+                        $books = Book::whereHas('authors', function (Builder $query) use ($filterValue) {
+                            $query->where('name', 'like', "%{$filterValue}%");
+                        })->get();
+                        break;
+                }
+            }
         } else {
             $books = Book::all();
         }

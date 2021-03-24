@@ -26,7 +26,7 @@ class Book extends FormRequest
         $book = $this->route('book');
 
         return [
-            'title' => 'required|max:255|unique:books,title,' . $book->id,
+            'title' => 'required|max:255|unique:books,title' . ($book !== null ? ',' . $book->id : ''),
             'text' => 'required',
             'author_ids' => 'required|array|',
             'author_ids.*' => 'exists:authors,id',
